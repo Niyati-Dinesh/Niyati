@@ -4,7 +4,8 @@ import Navbar from "./components/Navigation/Navbar";
 import Home from "./components/Home/Home";
 import Skills from "./components/Home/Skills";
 import Experience from "./components/Experience/Experience";
-
+import Project from "./components/Projects/Project";
+import NotFound from "./components/NotFound";
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -12,9 +13,22 @@ export default function App() {
       <Navbar />
 
       <main>
-        <Home/>
-        <Skills/>
-        <Experience/>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Home />
+                <Skills />
+                <Experience />
+                <Project />
+              </>
+            }
+          />
+
+          {/* 404 */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
         
       </main>
       <Footer />

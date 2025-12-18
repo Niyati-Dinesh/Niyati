@@ -1,8 +1,26 @@
 import { useState } from "react";
 import "./experience.css";
-
+import { useEffect, useRef} from "react";
 export default function Experience() {
   const [active, setActive] = useState("isb");
+  const [visible, setVisible] = useState(false);
+  const expRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (expRef.current) observer.observe(expRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const experiences = {
     isb: {
       company: "Infosys SpringBoard",
@@ -29,7 +47,11 @@ export default function Experience() {
   };
 
   return (
-    <div id="experience">
+    <div
+      id="experience"
+      ref={expRef}
+      className={`experiencess ${visible ? "visible" : ""}`}
+    >
       <div className="exp-container">
         <div className="myexp">
           <h1>Experience</h1>

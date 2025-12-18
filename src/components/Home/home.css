@@ -213,6 +213,62 @@
   font-weight: 600px;
 }
 
+/* ======================Animation======================== */
+
+.homee .name-wrap,
+.homee .curstatus,
+.homee .prevstatus,
+.homee .pfp,
+.homee .greeting,
+.homee .aboutme,
+.homee .links > a {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.homee .name-wrap {
+  animation: skillFadeUp 0.6s ease forwards;
+  animation-delay: 0.05s;
+}
+.homee .curstatus {
+  animation: skillFadeUp 0.6s ease forwards;
+  animation-delay: 0.15s;
+}
+.homee .prevstatus {
+  animation: skillFadeUp 0.6s ease forwards;
+  animation-delay: 0.25s;
+}
+.homee .pfp {
+  animation: skillFadeUp 0.6s ease forwards;
+  animation-delay: 0.35s;
+}
+.homee .greeting {
+  animation: skillFadeUp 0.6s ease forwards;
+  animation-delay: 0.45s;
+}
+.homee .aboutme {
+  animation: skillFadeUp 0.6s ease forwards;
+  animation-delay: 0.55s;
+}
+.homee .links > a:nth-child(1) {
+  animation: skillFadeUp 0.6s ease forwards;
+  animation-delay: 0.65s;
+}
+.homee .links > a:nth-child(2) {
+  animation: skillFadeUp 0.6s ease forwards;
+  animation-delay: 0.75s;
+}
+.homee .links > a:nth-child(3) {
+  animation: skillFadeUp 0.6s ease forwards;
+  animation-delay: 0.85s;
+}
+@keyframes skillFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* =============Responsive design================== */
 @media (max-width: 768px) {
   .intro {
@@ -228,7 +284,7 @@
     border-top-width: 0.655738px;
     height: 0%;
     min-height: 0px;
-    width:90%;
+    width: 90%;
     min-width: 200px;
     margin-top: 60px;
   }

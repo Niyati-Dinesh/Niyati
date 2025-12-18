@@ -1,8 +1,29 @@
 import "./home.css";
 import Skills from "./Skills";
+import { useEffect, useRef, useState } from "react";
 export default function Home() {
+  const homeRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (homeRef.current) observer.observe(homeRef.current);
+    return () => observer.disconnect();
+  }, []);
   return (
-    <div id="home">
+    <div
+      id="home"
+      ref={homeRef}
+      className={`homee ${visible ? "visible" : ""}`}
+    >
       {/*========================GRAD BLUR ON HOMEPAGE=======================*/}
       <div className="grad-blur-home">
         <div></div>
@@ -28,12 +49,13 @@ export default function Home() {
         {/*========================Name and status effect===================*/}
         <div className="name-wrap">
           <div>
-          <div className="name vblur" aria-hidden="true">
-            <h1>Hello, I'm Niyati</h1>
+            <div className="name vblur" aria-hidden="true">
+              <h1>Hello, I'm Niyati</h1>
+            </div>
+            <div className="name2">
+              <h1>Hello, I'm Niyati</h1>
+            </div>
           </div>
-          <div className="name2">
-            <h1>Hello, I'm Niyati</h1>
-          </div></div>
           {/*==================Status====================*/}
           <div className="status">
             <div className="curstatus">
@@ -45,7 +67,6 @@ export default function Home() {
               <h4>Intern @ Infosys Springboard</h4>
             </div>
           </div>
-
         </div>
         {/*===========================DIVIDOR=============================*/}
         <div className="dividor"></div>
@@ -85,7 +106,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      
     </div>
   );
 }
