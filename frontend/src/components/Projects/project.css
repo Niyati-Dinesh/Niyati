@@ -1,26 +1,20 @@
-/* =====================
-   Variables
-===================== */
+/*---------------------------VARIABLES---------------------------*/
+
 * {
-  --border: rgba(0, 0, 0, 0.12);
-  --text: rgba(0, 0, 0, 1);
-  --text-secondary: rgba(0, 0, 0, 0.45);
-  --title-secondary: rgba(0, 0, 0, 0.3);
-  --cardBg: #eaeae3;
+  --border: var(--border-primary);
+  --text: var(--text-primary);
 }
 
-/* =====================
-   Section
-===================== */
+/*---------------------------PROJECTS SECTION---------------------------*/
+
 #projects {
   width: 100%;
   padding-top: 140px;
   padding-bottom: 120px;
 }
 
-/* =====================
-   Container
-===================== */
+/*---------------------------CONTAINER---------------------------*/
+
 .proj-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -28,9 +22,9 @@
   grid-template-rows: auto auto auto;
   row-gap: 72px;
 }
-/* =====================
-   Title block
-===================== */
+
+/*---------------------------TITLE BLOCK---------------------------*/
+
 .myproj {
   padding-left: 32px;
 }
@@ -52,9 +46,8 @@
   transform: translateY(24px);
 }
 
-/* =====================
-   Grid
-===================== */
+/*---------------------------PROJECT GRID---------------------------*/
+
 .project-grid {
   max-width: 1200px;
   margin: 0 auto;
@@ -65,25 +58,23 @@
   gap: 48px 40px; /* vertical | horizontal */
 }
 
-/* =====================
-   Card
-===================== */
+/*---------------------------PROJECT CARD---------------------------*/
+
 .project-grid > div {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* =====================
-   Image
-===================== */
+/*---------------------------IMAGE---------------------------*/
+
 .ppreview-image {
   width: 100%;
   aspect-ratio: 14 / 9;
-
   border-radius: 18px;
   overflow: hidden;
   background-color: #e2e2de;
+  border: 1px solid var(--border-primary);
 }
 
 .ppreview-image img {
@@ -98,9 +89,8 @@
   transform: scale(1.03);
 }
 
-/* =====================
-   Title + badge
-===================== */
+/*---------------------------TITLE + BADGE---------------------------*/
+
 .pcomp-section {
   display: flex;
   align-items: center;
@@ -114,35 +104,32 @@
   color: var(--text);
 }
 
-/* =====================
-   Status badge
-===================== */
+/*---------------------------STATUS BADGE---------------------------*/
+
 .pstatus {
   border: 1.5px solid var(--border);
   padding: 0 10px;
   border-radius: 999px;
   height: 28px;
-
   display: flex;
   align-items: center;
-
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.4px;
   text-transform: uppercase;
   color: var(--text-secondary);
   -webkit-backdrop-filter: blur(10px);
-  transition: transform 0.3s ease-in;
   backdrop-filter: blur(10px);
-}
-.pstatus:hover {
-  transform: scale(1.06);
-  background: var(--bg-teritiary);
+  transition: transform 0.3s ease-in;
 }
 
-/* =====================
-   Description
-===================== */
+.pstatus:hover {
+  transform: scale(1.06);
+  background: var(--bg-tertiary);
+}
+
+/*---------------------------DESCRIPTION---------------------------*/
+
 .pdesc {
   font-size: 16px;
   line-height: 32px;
@@ -150,9 +137,8 @@
   max-width: 95%;
 }
 
-/* =====================
-   Meta row
-===================== */
+/*---------------------------META ROW---------------------------*/
+
 .project-context {
   display: flex;
   justify-content: space-between;
@@ -163,9 +149,7 @@
   margin-top: 4px;
 }
 
-/* =====================
-   Animation
-===================== */
+/*---------------------------ANIMATIONS---------------------------*/
 
 .projectss .proj-title,
 .projectss .proj-desc,
@@ -176,7 +160,7 @@
 
 .projectss.visible .proj-title,
 .projectss.visible .proj-desc {
-  animation: skillFadeUp 0.6s ease forwards;
+  animation: skillFadeUp 0.5s ease forwards;
 }
 
 .projectss.visible .project-grid > div {
@@ -186,18 +170,23 @@
 .projectss.visible .project-grid > div:nth-child(1) {
   animation-delay: 0.1s;
 }
+
 .projectss.visible .project-grid > div:nth-child(2) {
   animation-delay: 0.18s;
 }
+
 .projectss.visible .project-grid > div:nth-child(3) {
   animation-delay: 0.26s;
 }
+
 .projectss.visible .project-grid > div:nth-child(4) {
   animation-delay: 0.37s;
 }
+
 .projectss.visible .project-grid > div:nth-child(5) {
   animation-delay: 0.48s;
 }
+
 @keyframes skillFadeUp {
   to {
     opacity: 1;
@@ -205,9 +194,9 @@
   }
 }
 
-/* =====================
-   Small screens
-===================== */
+/*---------------------------RESPONSIVE DESIGN---------------------------*/
+
+/* Small screens */
 @media (max-width: 768px) {
   .project-grid {
     grid-template-columns: 1fr;

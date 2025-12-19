@@ -1,6 +1,13 @@
 import "./home.css";
+import resume from "/resume.png";
+import linkedin from "/linkedin.svg";
+import github from "/github.svg";
+import pfp from "/pfp3.png";
+import resumefile from "/Niyati_Dinesh_Bhatt___Resume.pdf";
 import Skills from "./Skills";
 import { useEffect, useRef, useState } from "react";
+
+//-----------------------FUNCTIONS----------------------------------------
 export default function Home() {
   const homeRef = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -18,6 +25,9 @@ export default function Home() {
     if (homeRef.current) observer.observe(homeRef.current);
     return () => observer.disconnect();
   }, []);
+
+ //----------------------COMPONENT DESIGN--------------------------------------
+  
   return (
     <div
       id="home"
@@ -44,6 +54,8 @@ export default function Home() {
           </filter>
         </defs>
       </svg>
+      
+
       <div></div>
       <div className="intro">
         {/*========================Name and status effect===================*/}
@@ -72,10 +84,10 @@ export default function Home() {
         <div className="dividor"></div>
         {/*===========================SELF-INTRO=============================*/}
         <div className="self-intro">
-          <img src="/pfp.png" alt="profile pic" className="pfp" />
+          <img src={pfp} alt="profile pic" className="pfp" />
           <div>
             <h3 className="greeting" s>
-              Nice to meet cha'
+              Nice to meet you,
             </h3>
             <h4 className="aboutme">
               I’m a CS student who likes trying a bit of everything and seeing
@@ -88,14 +100,14 @@ export default function Home() {
                 href="https://www.linkedin.com/in/niyati-dinesh-bhatt/"
                 target="_blank"
               >
-                <img src="/linkedin.svg" alt="linkedin" />
+                <img src={linkedin} alt="linkedin" />
               </a>
               <a href="https://github.com/Niyati-Dinesh" target="_blank">
-                <img src="/github.svg" className="pt-2.5" alt="github" />
+                <img src={github} className="pt-2.5" alt="github" />
               </a>
-              <a href="/Niyati_Dinesh_Bhatt___Resume.pdf" target="_blank">
+              <a href={resumefile} target="_blank">
                 <img
-                  src="/resume.png"
+                  src={resume}
                   alt="resume"
                   width="27px"
                   height="23px"
