@@ -152,7 +152,7 @@
 
 .dividor {
   position: relative;
-  border-top-color: var(--border-primary);
+  border: var( --text-primary);
   border-top-style: solid;
   border-top-width: 0.655738px;
   height: 0%;

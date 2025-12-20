@@ -1,59 +1,42 @@
-import { useEffect, useState } from "react";
-import Footer from "./components/Footer";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navigation/Navbar";
+import Footer from "./components/Footer";
+
 import Home from "./components/Home/Home";
 import Skills from "./components/Home/Skills";
 import Experience from "./components/Experience/Experience";
 import Project from "./components/Projects/Project";
+import About from "./components/About/About";
+
 import NotFound from "./components/NotFound";
 
-const VALID_HASHES = [
-  "",
-  "#home",
-  "#skills",
-  "#experience",
-  "#projects",
-  "#about",
-];
-
 export default function App() {
-  const [invalid, setInvalid] = useState(false);
-
-  useEffect(() => {
-  const handleHashChange = () => {
-    const hash = window.location.hash;
-    setInvalid(hash && !VALID_HASHES.includes(hash));
-  };
-
-  handleHashChange(); // run once on load
-  window.addEventListener("hashchange", handleHashChange);
-
-  return () => {
-    window.removeEventListener("hashchange", handleHashChange);
-  };
-}, []);
-
-
-  if (invalid) {
-    return (
-      <>
-       <div className="texture"></div>
-        <Navbar />
-        <NotFound />
-        <Footer />
-      </>
-    );
-  }
-
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="texture"></div>
-      <Navbar />
-      <Home />
-      <Skills />
-      <Experience />
-      <Project />
-      <Footer />
-    </div>
+   
+      <div className="min-h-screen flex flex-col">
+        <div className="texture"></div>
+        <Navbar />
+
+        <main>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Home />
+                  <Skills />
+                  <Experience />
+                  <Project />
+                </>
+              }
+            />
+            <Route path="/about" element={<About />} />
+
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+
+        <Footer />
+      </div>
   );
 }

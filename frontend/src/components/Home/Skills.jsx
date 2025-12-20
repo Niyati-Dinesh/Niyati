@@ -21,7 +21,7 @@ export default function Skills() {
     },
     {
       title: "Databases",
-      skills: ["MongoDB", "PostgreSQL", "MySQL", "Prisma"],
+      skills: ["MongoDB", "PostgreSQL", "MySQL","SQLite", "Prisma"],
       description: "Storing data with structure",
     },
     {

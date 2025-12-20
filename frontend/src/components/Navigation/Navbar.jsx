@@ -3,12 +3,17 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
 export default function Navbar() {
-  
   //---------------------------DECLARATIONS---------------------------------
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState("home");
 
-  const links = ["Skills", "Experience", "Projects", "About"];
+  const links = [
+    { label: "Skills", type: "scroll", id: "skills" },
+    { label: "Experience", type: "scroll", id: "experience" },
+    { label: "Projects", type: "scroll", id: "projects" },
+    { label: "About", type: "route", path: "/about" },
+  ];
+
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   //-----------------------FUNCTIONS----------------------------------------
@@ -27,6 +32,16 @@ export default function Navbar() {
     }
   };
 
+  const handleScroll = (id) => {
+    if (window.location.hash != "#/") {
+      window.location.hash = "#/";
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   //----------------------COMPONENT DESIGN--------------------------------------
   return (
     <nav className={`navigation  ${menuOpen ? "open" : ""}`}>
@@ -42,29 +57,46 @@ export default function Navbar() {
       {/*===========================LOGO=============================*/}
       <div className="navbar-brand">
         <div className="logo">
-          <a href="#home" onClick={() => setActive("home")}>
+          <button key="home" onClick={() =>{
+                  setActive("home");
+                  handleScroll("home");
+                }}>
             Ni.
-          </a>
+          </button>
         </div>
       </div>
       {/*===========================LINKS=============================*/}
       <div className="nav-links">
         {links.map((link) => {
-          const id = link.toLowerCase();
+          if (link.type === "scroll") {
+            return (
+              <button
+                key={link.id}
+                className={`nav-link ${active === link.id ? "active-nav" : ""}`}
+                onClick={() => {
+                  setActive(link.id);
+                  handleScroll(link.id);
+                }}
+              >
+                {link.label}
+              </button>
+            );
+          }
+
           return (
-            <a
-              key={link}
-              href={`#${id}`}
-              className={`nav-link ${active === id ? "active-nav" : ""}`}
-              onClick={() => setActive(id)}
+            <Link
+              key={link.path}
+              to={link.path}
+              className={`nav-link ${active === "about" ? "active-nav" : ""}`}
+              onClick={() => setActive("about")}
             >
-              {link}
-            </a>
+              {link.label}
+            </Link>
           );
         })}
         {/*===========================THEME=============================*/}
-        <button className="theme" onClick={() => changeTheme()}>
-          {theme == "light" ? <Sun /> : <Moon />}
+        <button className="theme" onClick={changeTheme}>
+          {theme === "light" ? <Sun /> : <Moon />}
         </button>
       </div>
 
