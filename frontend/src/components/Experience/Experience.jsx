@@ -1,26 +1,11 @@
 import { useState } from "react";
 import "./experience.css";
-import { useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
 export default function Experience() {
+  //---------------------------DECLARATIONS---------------------------------
   const [active, setActive] = useState("isb");
   const [visible, setVisible] = useState(false);
   const expRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (expRef.current) observer.observe(expRef.current);
-    return () => observer.disconnect();
-  }, []);
-
   const experiences = {
     isb: {
       company: "Infosys SpringBoard",
@@ -41,11 +26,26 @@ export default function Experience() {
       desc: "Executed practical network vulnerability assessments using Wireshark and Nmap on simulated architectures. Applied ethical hacking principles to identify security flaws, documenting defense strategies against SQL injection and common attack vectors to fortify network integrity.",
     },
   };
+  //-----------------------FUNCTIONS----------------------------------------
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (expRef.current) observer.observe(expRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   const changeActive = (company) => {
     setActive(company);
   };
-
+ //----------------------COMPONENT DESIGN--------------------------------------
   return (
     <div
       id="experience"
@@ -56,7 +56,7 @@ export default function Experience() {
         <div className="myexp">
           <h1>Experience</h1>
         </div>
-
+        {/*===================LIST OF COMPANIES=============================*/}
         <div className="companies">
           {Object.keys(experiences).map((key) => (
             <span
@@ -68,7 +68,7 @@ export default function Experience() {
             </span>
           ))}
         </div>
-
+        {/*===========================DESCRIPTION=============================*/}
         <div className="description">
           <span className="title">
             {experiences[active].company} - {experiences[active].positon}
@@ -81,6 +81,7 @@ export default function Experience() {
           <br />
         </div>
       </div>
+      {/*===========================DIVIDOR=============================*/}
       <div className="dividor"></div>
     </div>
   );

@@ -1,7 +1,11 @@
+/*---------------------------SKILLS SECTION---------------------------*/
+
 .skillss {
   width: 100%;
   padding: 160px 32px;
 }
+
+/*---------------------------CONTAINER---------------------------*/
 
 .skills-container {
   display: grid;
@@ -11,7 +15,8 @@
   margin: 0 auto;
 }
 
-/* LEFT */
+/*---------------------------LEFT COLUMN---------------------------*/
+
 .skills-left h1 {
   font-family: "Neulis Cursive", cursive;
   font-size: 48px;
@@ -29,6 +34,9 @@
   opacity: 0;
   transform: translateY(24px);
 }
+
+/*---------------------------DIVIDER---------------------------*/
+
 .divider::before {
   content: "";
   position: absolute;
@@ -36,7 +44,7 @@
   left: 0;
   width: 1px;
   height: 100%;
-  background: rgba(0, 0, 0, 0.25);
+  background: var(--border-secondary);
   transform-origin: top;
   transform: scaleY(0);
   animation: drawLine 1.2s ease-out forwards;
@@ -44,7 +52,7 @@
 
 .dividor {
   position: relative;
-  border-top-color: rgba(0, 0, 0, 0.12);
+  border-top-color: var( --bg-secondary);
   border-top-style: solid;
   border-top-width: 0.655738px;
   height: 0%;
@@ -56,23 +64,17 @@
   margin-left: auto;
 }
 
-/* RIGHT */
+/*---------------------------RIGHT COLUMN---------------------------*/
+
 .skills-right {
   font-family: "Manrope", sans-serif;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 64px;
 }
-.title {
-  font-size: 20px;
-  font-weight: 700;
-}
-.desc {
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--text-secondary);
-}
-/* BOX */
+
+/*---------------------------SKILL BOX---------------------------*/
+
 .skill-box {
   display: flex;
   flex-direction: column;
@@ -80,6 +82,47 @@
   opacity: 0;
   transform: translateY(24px);
 }
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.desc {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+/*---------------------------SKILL PILLS---------------------------*/
+
+.cat-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cat-skill {
+  background: var(--bg-tertiary);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease-out;
+  border: 1px solid var(--border-primary);
+}
+
+.cat-skill:hover {
+  transform: scale(1.07);
+  cursor: pointer;
+  background: var(--bg-tertiary);
+  border-color: var(--border-secondary);
+}
+html[data-theme="dark"] .cat-skills {
+  color:#e5dfd5;
+}
+
+/*---------------------------ANIMATIONS---------------------------*/
 
 .skillss.visible .skill-box,
 .skillss.visible .skills-left h3,
@@ -90,18 +133,23 @@
 .skillss.visible .skill-box:nth-child(1) {
   animation-delay: 0.05s;
 }
+
 .skillss.visible .skill-box:nth-child(2) {
   animation-delay: 0.12s;
 }
+
 .skillss.visible .skill-box:nth-child(3) {
   animation-delay: 0.19s;
 }
+
 .skillss.visible .skill-box:nth-child(4) {
   animation-delay: 0.26s;
 }
+
 .skillss.visible .skill-box:nth-child(5) {
   animation-delay: 0.33s;
 }
+
 .skillss.visible .skill-box:nth-child(6) {
   animation-delay: 0.4s;
 }
@@ -113,26 +161,9 @@
   }
 }
 
-/* PILLS */
-.cat-skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
 
-.cat-skill {
-  background: var(--bg-teritiary);
-  border-radius: 999px;
-  padding: 6px 12px;
-  font-size: 14px;
-  font-weight: 600;
-  transition: all 0.3s ease-out;
-}
-.cat-skill:hover {
-  transform: scale(1.07);
-  cursor: pointer;
-}
-/* MOBILE */
+/*---------------------------RESPONSIVE DESIGN---------------------------*/
+
 @media (max-width: 768px) {
   .skills-container {
     grid-template-columns: 1fr;

@@ -1,0 +1,125 @@
+#about {
+  width: 100%;
+  padding-top: 64px;
+  padding-bottom: 120px;
+}
+
+/* ---------------- CONTAINER ---------------- */
+.about-container {
+  font-family: "Manrope", sans-serif;
+  max-width: 1200px;
+  margin: 80px auto 96px;
+  display: grid;
+  row-gap: 72px;
+  padding: 32px;
+}
+
+/* ---------------- HEADINGS ---------------- */
+.about-container h1 {
+  font-size: 8vw;
+  line-height: 90%;
+  font-family: "Neulis Cursive", cursive;
+  color: var(--text-primary);
+}
+
+.about-container .title-2 {
+  font-family: "Neulis Cursive", cursive;
+  color: var(--text-secondary);
+  margin-top: 10px;
+}
+
+/* ---------------- TEXT ---------------- */
+.about-container p {
+  color: var(--text-secondary);
+  font-family: "Manrope", sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 170%;
+  margin-top: 10px;
+}
+
+.about-container .pronounciation {
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+
+/* ---------------- STATUS GRID ---------------- */
+.about-status {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  color: var(--text-primary);
+}
+
+.about-status h3 {
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.about-status p {
+  font-size: 20px;
+}
+
+/* ---------------- SOCIALS ---------------- */
+.about-socials {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-resume {
+  width: 25px;
+  margin-left: 5px;
+}
+.about-socials a {
+  transition: transform 0.5s ease;
+}
+.about-socials a:hover {
+  transform: scale(1.06);
+}
+html[data-theme="dark"] .about-socials {
+  margin-top: 4px;
+  background-color: var(--bg-quaternary);
+  width: fit-content;
+  padding-right: 9px;
+  border-radius: 32px;
+}
+
+/*------------------Dividor--------------------------*/
+.dividor {
+  position: relative;
+  border-top-color: var(--border-primary);
+  border-top-style: solid;
+  border-top-width: 0.655738px;
+  height: 0%;
+  min-height: 0px;
+  width: 65%;
+  min-width: 200px;
+  margin-top: 30px;
+  background: transparent;
+  margin-left: auto;
+}
+
+/* ---------------- Responsive design---------------- */
+@media (max-width: 768px) {
+  .about-status {
+    display: flex;
+    flex-direction: column;
+  } 
+  .about-container h1 {
+    font-size: 48px;
+    line-height: 90%;
+    font-family: "Neulis Cursive", cursive;
+    color: var(--text-primary);
+  }
+
+  .dividor {
+    width: 95%;
+    margin-right: auto;
+  }
+}

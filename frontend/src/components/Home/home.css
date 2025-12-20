@@ -1,3 +1,5 @@
+/*------------------------GRAINY BLUR EFFECT ON HOME-------------------- */
+
 .grad-blur-home {
   position: absolute;
   z-index: -1;
@@ -115,11 +117,16 @@
   mask: linear-gradient(to top, rgba(0, 0, 0, 0) 87.5%, rgba(0, 0, 0, 1) 100%);
 }
 
+/*---------------------------HOME SECTION---------------------------*/
+
 #home {
   position: relative;
   z-index: 1;
   min-height: 100vh;
 }
+
+/*---------------------------INTRO LAYOUT---------------------------*/
+
 .intro {
   display: grid;
   grid-template-columns: auto 1px auto;
@@ -130,42 +137,54 @@
   padding-top: 32px;
   padding-bottom: 32px;
 }
+
+/*---------------------------NAME WRAPPER---------------------------*/
+
 .name-wrap {
   position: relative;
   padding-top: 135px;
 }
 
-/*Shadow*/
+/* Shadow Name */
 .name {
   position: absolute;
   text-align: start;
   font-size: 70px;
   font-family: "Neulis Cursive", cursive;
-  color: rgb(33, 37, 41);
+  color: var(--text-primary);
 }
-/*Solid Name*/
+
+/* Solid Name */
 .name2 {
   position: relative;
   text-align: start;
   font-size: 70px;
   font-family: "Neulis Cursive";
-  color: rgb(33, 37, 41);
+  color: var(--text-primary);
 }
+
 .name2 h1,
 .name h1 {
   margin: 0;
 }
+
+/* Blur Effect */
 .vblur {
   filter: url(#blur);
   opacity: 0.7;
   pointer-events: none;
 }
 
+/*---------------------------DIVIDER---------------------------*/
+
 .dividor {
-  border: solid rgba(0, 0, 0, 0.12) 0.6px;
+  border: solid var(--border-primary) 0.6px;
   height: 100%;
   min-height: 400px;
 }
+
+/*---------------------------SELF INTRO---------------------------*/
+
 .self-intro {
   display: flex;
   flex-direction: column;
@@ -173,10 +192,12 @@
   gap: 24px;
   margin-top: 135px;
 }
+
 .pfp {
   width: 100px;
   height: 100px;
   object-fit: cover;
+  clip-path: circle(50% at 50% 50%);
 }
 
 .greeting {
@@ -185,7 +206,9 @@
   font-weight: 700;
   line-height: 30px;
   text-align: start;
+  color: var(--text-primary);
 }
+
 .aboutme {
   font-family: Manrope, sans-serif;
   font-size: 20px;
@@ -194,6 +217,9 @@
   text-align: start;
   color: var(--text-secondary);
 }
+
+/*---------------------------STATUS SECTION---------------------------*/
+
 .status {
   font-family: Manrope, sans-serif;
   display: flex;
@@ -207,13 +233,32 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
-}
-.status h4 {
-  color: #0006;
-  font-weight: 600px;
+  color: var(--text-primary);
 }
 
-/* ======================Animation======================== */
+.status h4 {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+/*---------------------------SOCIAL LINKS---------------------------*/
+
+.links img {
+  transition: transform 0.3s ease-out;
+}
+
+.links img:hover {
+  transform: scale(1.09);
+}
+html[data-theme="dark"] .links {
+  margin-top: 4px;
+  background-color: var(--bg-quaternary);
+  width:fit-content;
+  padding-right: 4px;
+  border-radius: 32px;
+}
+
+/* ======================ANIMATION======================== */
 
 .homee .name-wrap,
 .homee .curstatus,
@@ -230,38 +275,47 @@
   animation: skillFadeUp 0.6s ease forwards;
   animation-delay: 0.05s;
 }
+
 .homee .curstatus {
   animation: skillFadeUp 0.6s ease forwards;
   animation-delay: 0.15s;
 }
+
 .homee .prevstatus {
   animation: skillFadeUp 0.6s ease forwards;
   animation-delay: 0.25s;
 }
+
 .homee .pfp {
   animation: skillFadeUp 0.6s ease forwards;
   animation-delay: 0.35s;
 }
+
 .homee .greeting {
   animation: skillFadeUp 0.6s ease forwards;
   animation-delay: 0.45s;
 }
+
 .homee .aboutme {
   animation: skillFadeUp 0.6s ease forwards;
   animation-delay: 0.55s;
 }
+
 .homee .links > a:nth-child(1) {
   animation: skillFadeUp 0.6s ease forwards;
   animation-delay: 0.65s;
 }
+
 .homee .links > a:nth-child(2) {
   animation: skillFadeUp 0.6s ease forwards;
   animation-delay: 0.75s;
 }
+
 .homee .links > a:nth-child(3) {
   animation: skillFadeUp 0.6s ease forwards;
   animation-delay: 0.85s;
 }
+
 @keyframes skillFadeUp {
   to {
     opacity: 1;
@@ -269,7 +323,8 @@
   }
 }
 
-/* =============Responsive design================== */
+/* =============RESPONSIVE DESIGN================== */
+
 @media (max-width: 768px) {
   .intro {
     grid-template-columns: 1fr;
@@ -279,7 +334,7 @@
   }
 
   .dividor {
-    border-top-color: rgba(0, 0, 0, 0.12);
+    border-top-color: var(--border-primary);
     border-top-style: solid;
     border-top-width: 0.655738px;
     height: 0%;
@@ -293,10 +348,12 @@
     padding-top: 60px;
     text-align: start;
   }
+
   .status h3,
   .status h4 {
     font-size: 20px;
   }
+
   .name,
   .name2 {
     font-size: 40px;

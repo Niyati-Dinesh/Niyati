@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import "./skills.css";
 
 export default function Skills() {
-    const skillCategories = [
+  //---------------------------DECLARATIONS---------------------------------
+  const skillCategories = [
     {
       title: "Languages",
       skills: ["Python", "Java", "C", "JavaScript", "HTML", "CSS"],
@@ -20,7 +21,7 @@ export default function Skills() {
     },
     {
       title: "Databases",
-      skills: ["MongoDB", "PostgreSQL", "MySQL", "Prisma"],
+      skills: ["MongoDB", "PostgreSQL", "MySQL","SQLite", "Prisma"],
       description: "Storing data with structure",
     },
     {
@@ -33,11 +34,12 @@ export default function Skills() {
       skills: ["Git", "GitHub"],
       description: "Collaboration and version-control",
     },
-  ]
+  ];
 
   const skillsRef = useRef(null);
   const [visible, setVisible] = useState(false);
 
+  //-----------------------FUNCTIONS----------------------------------------
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -52,30 +54,30 @@ export default function Skills() {
     if (skillsRef.current) observer.observe(skillsRef.current);
     return () => observer.disconnect();
   }, []);
-
+ //----------------------COMPONENT DESIGN--------------------------------------
   return (
-    <section id='skills'
+    <section
+      id="skills"
       ref={skillsRef}
       className={`skillss ${visible ? "visible" : ""}`}
     >
       <div className="skills-container">
-
+        {/*===========================HEADING=============================*/}
         <div className="skills-left">
           <h1>My skills</h1>
           <h3>
             Tools and Technologies I use <br />
             to bring ideas to life
           </h3>
-          
         </div>
-
+        {/*===========================SKILLS=============================*/}
         <div className="skills-right">
-          {skillCategories.map(cat => (
+          {skillCategories.map((cat) => (
             <div className="skill-box" key={cat.title}>
               <h2 className="title">{cat.title}</h2>
               <p className="desc">{cat.description}</p>
               <div className="cat-skills">
-                {cat.skills.map(skill => (
+                {cat.skills.map((skill) => (
                   <span className="cat-skill" key={skill}>
                     {skill}
                   </span>
@@ -84,7 +86,6 @@ export default function Skills() {
             </div>
           ))}
         </div>
-
       </div>
       <div className="dividor"></div>
     </section>

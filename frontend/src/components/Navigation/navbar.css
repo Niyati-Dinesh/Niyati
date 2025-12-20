@@ -15,16 +15,19 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
+
+/*---------------------------NAVBAR BRAND---------------------------*/
+
 .navbar-brand {
   flex: 1;
 }
 
 .logo {
-  font-family: cursive;
+  font-family: "Neulis-cursive" cursive;
   width: 50px;
   height: 50px;
-  background-color: var(--bg-quat);
-  color: var(--text-teritiary);
+  background-color: var(--bg-quaternary);
+  color: var(--text-tertiary);
   border-radius: 50px;
   display: flex;
   align-items: center;
@@ -32,6 +35,8 @@
   font-weight: 700;
   font-size: 18px;
 }
+
+/*---------------------------NAV LINKS---------------------------*/
 
 .nav-links {
   display: flex;
@@ -50,18 +55,16 @@
   background-position: 0 100%;
   background-repeat: repeat-x;
   background-size: auto 4px;
-  text-decoration: none;
-  padding: 8px 16px !important;
-  border-radius: 100px;
-  font-size: 18px;
   transition: all 0.6s ease-out, opacity 0.4s ease, transform 0.4s ease;
 }
 
 .nav-link:hover,
 .active-nav {
-  background-color: var(--bg-teritiary);
-  color: var(--text-quat) !important;
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary) !important;
 }
+
+/*---------------------------NAVBAR TOGGLER---------------------------*/
 
 .navbar-toggler {
   display: none;
@@ -73,14 +76,16 @@
   .navbar-toggler {
     display: block;
   }
-  .navigation {
-    padding: 8px;
+  .logo{
+    font-family: cursive;
   }
+
   .navigation {
     width: 100%;
     padding: 16px;
     padding-bottom: 20px;
   }
+
   /* Hide horizontal menu */
   .nav-links {
     position: absolute;
@@ -105,6 +110,7 @@
     transform: translateY(9px);
     transition: opacity 0.4s ease, transform 0.4s ease;
   }
+
   .theme {
     opacity: 0;
     transform: translateY(9px);
@@ -112,11 +118,13 @@
   }
 
   /*----------------------ANIMATION------------------------------------------*/
+
   .navigation.open .nav-links {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
   }
+
   .navigation.open .nav-link,
   .navigation.open .theme {
     opacity: 1;
@@ -126,21 +134,26 @@
   .navigation.open .nav-link:nth-child(1) {
     transition-delay: 0.05s;
   }
+
   .navigation.open .nav-link:nth-child(2) {
     transition-delay: 0.12s;
   }
+
   .navigation.open .nav-link:nth-child(3) {
     transition-delay: 0.19s;
   }
+
   .navigation.open .nav-link:nth-child(4) {
     transition-delay: 0.26s;
   }
+
   .navigation.open .theme {
     transition-delay: 0.33s;
   }
 }
 
 /*------------------------GRAINY BLUR EFFECT ON NAVBAR-------------------- */
+
 .grad-blur {
   position: absolute;
   z-index: -1;

@@ -1,12 +1,19 @@
 import { Sun, TextAlignJustify, Moon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./navbar.css"
+import "./navbar.css";
 export default function Navbar() {
   //---------------------------DECLARATIONS---------------------------------
   const [menuOpen, setMenuOpen] = useState(false);
-  const [active, setActive] = useState("#home");
-  const links = ["Skills", "Experience", "Projects", "About"];
+  const [active, setActive] = useState("home");
+
+  const links = [
+    { label: "Skills", type: "scroll", id: "skills" },
+    { label: "Experience", type: "scroll", id: "experience" },
+    { label: "Projects", type: "scroll", id: "projects" },
+    { label: "About", type: "route", path: "/about" },
+  ];
+
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   //-----------------------FUNCTIONS----------------------------------------
@@ -25,9 +32,20 @@ export default function Navbar() {
     }
   };
 
+  const handleScroll = (id) => {
+    if (window.location.hash != "#/") {
+      window.location.hash = "#/";
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   //----------------------COMPONENT DESIGN--------------------------------------
   return (
     <nav className={`navigation  ${menuOpen ? "open" : ""}`}>
+      {/*========================GRAINY EFFECT======================*/}
       <div className="grad-blur">
         <div></div>
         <div></div>
@@ -36,26 +54,49 @@ export default function Navbar() {
         <div></div>
         <div></div>
       </div>
-
+      {/*===========================LOGO=============================*/}
       <div className="navbar-brand">
         <div className="logo">
-          <a href="/#home">Ni.</a>
+          <button key="home" onClick={() =>{
+                  setActive("home");
+                  handleScroll("home");
+                }}>
+            Ni.
+          </button>
         </div>
       </div>
-
+      {/*===========================LINKS=============================*/}
       <div className="nav-links">
-        {links.map((link) => (
-          <a
-            key={link}
-            href={`#${link.toLowerCase()}`}
-            className={`nav-link ${active == link ? "active-nav" : ""}`}
-            onClick={() => setActive(link)}
-          >
-            {link}
-          </a>
-        ))}
-        <button className="theme" onClick={() => changeTheme()}>
-          {theme == "light" ? <Sun /> : <Moon />}
+        {links.map((link) => {
+          if (link.type === "scroll") {
+            return (
+              <button
+                key={link.id}
+                className={`nav-link ${active === link.id ? "active-nav" : ""}`}
+                onClick={() => {
+                  setActive(link.id);
+                  handleScroll(link.id);
+                }}
+              >
+                {link.label}
+              </button>
+            );
+          }
+
+          return (
+            <Link
+              key={link.path}
+              to={link.path}
+              className={`nav-link ${active === "about" ? "active-nav" : ""}`}
+              onClick={() => setActive("about")}
+            >
+              {link.label}
+            </Link>
+          );
+        })}
+        {/*===========================THEME=============================*/}
+        <button className="theme" onClick={changeTheme}>
+          {theme === "light" ? <Sun /> : <Moon />}
         </button>
       </div>
 
