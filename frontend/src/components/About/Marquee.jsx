@@ -13,30 +13,29 @@ export default function Marquee() {
     <div className="marquee">
       <div className="marquee-track">
         <img src={img2} />
-        <img src={img6} />
+
         <img src={img3} />
 
         <img src={img4} />
-        <img src={img8} />
+
         <img src={img5} />
-        <img src={img7} />
 
         {/*Duplicates the same image*/}
 
-        <img src={img5} />
-        <img src={img7} />
-        <img src={img4} />
-        <img src={img6} />
         <img src={img3} />
-        <img src={img8} />
+
+        <img src={img4} />
+
+        <img src={img1} />
+
         <img src={img2} />
 
         <img src={img5} />
-        <img src={img8} />
+
         <img src={img4} />
-        <img src={img7} />
+
         <img src={img3} />
-        <img src={img6} />
+
         <img src={img2} />
       </div>
     </div>

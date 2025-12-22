@@ -19,7 +19,10 @@ export default function Project() {
           observer.disconnect();
         }
       },
-      { threshold: 0.2 }
+      {
+        threshold: 0,
+        rootMargin: "0px 0px -100px 0px",
+      }
     );
 
     if (projRef.current) observer.observe(projRef.current);
@@ -32,7 +35,7 @@ export default function Project() {
       title: "ShopThrone",
       image: shopthrone,
       type: "Infosys Springboard",
-      tech:["python","fastapi","react","tailwindcss","postgresql"],
+      tech: ["python", "fastapi", "react", "tailwindcss", "postgresql"],
       time: "Sep 2025 - Nov 2025",
       desc: "Engineered a high-performance product price comparing web application that scrapes real-time pricing data from multiple ecommerce sites. Integrated a Vision Transformer (ViT) model to enable AI-powered image search, classifying products with 90% accuracy in under 2 seconds. Optimized backend pipelines to reduce data retrieval latency by 40%.",
       github: "https://github.com/Niyati-Dinesh/snippetvault",
@@ -42,7 +45,7 @@ export default function Project() {
       title: "CyberTron",
       image: cybertrone,
       type: "Academic Project",
-      tech:["nodejs","expressjs","react","tailwindcss","sqlite","prisma"],
+      tech: ["nodejs", "expressjs", "react", "tailwindcss", "sqlite", "prisma"],
       time: "Aug 2025 - Nov 2025",
       desc: "Architected a local-first Security Information and Event Management (SIEM) dashboard for Linux servers. Built a Node.js middleware to orchestrate kernel-level commands (like nmap and ps) and correlate running services with the National Vulnerability Database API. Delivers real-time threat detection and process hygiene analysis.",
       github: "https://github.com/Niyati-Dinesh/CyberTron",
@@ -53,7 +56,7 @@ export default function Project() {
       image: snippetvault,
       type: "Side Project",
       time: "July 2025 - Aug 2025",
-      tech:["mongodb","expressjs","react","nodejs","tailwindcss"],
+      tech: ["mongodb", "expressjs", "react", "nodejs", "tailwindcss"],
       desc: "Developed a centralized CLI command repository designed to accelerate developer workflows. Built a secure MERN stack architecture with JWT authentication to protect private snippets. Implemented advanced search algorithms that cut syntax research time by roughly 50%, eliminating the need for repetitive terminal command lookups.",
       github: "https://github.com/Niyati-Dinesh/SnippetVault",
     },
@@ -62,7 +65,7 @@ export default function Project() {
       title: "NewsNation",
       image: newsnation,
       type: "Side Project",
-      tech:["react","bootstrap","newsapi"],
+      tech: ["react", "bootstrap", "newsapi"],
       time: "June 2025 - July 2025",
       desc: "Designed and built a high-performance news aggregator using React and Vite, achieving a 80+ Lighthouse performance score. Architected a modular UI system with reusable components to fetch and render live articles from external REST APIs with zero latency, ensuring a smooth, responsive reading experience.",
       github: "https://github.com/Niyati-Dinesh/NewsNation",
@@ -72,7 +75,7 @@ export default function Project() {
       title: "StudyNest",
       image: studynest,
       type: "Side Project",
-      tech:["html","css","javascript","ajax","php"],
+      tech: ["html", "css", "javascript", "ajax", "php"],
       time: "April 2025",
       desc: "Designed and developed a full-stack Learning Management System (LMS) from scratch using HTML, CSS, JS, PHP and MySQL. Built secure session-based login systems and dynamic admin dashboards to handle lesson distribution. Implemented real-time student progress tracking and optimized database schemas for fast content retrieval.",
       github: "https://github.com/Niyati-Dinesh/StudyNest",
@@ -115,11 +118,11 @@ export default function Project() {
               </div>
 
               <div className="techstack">
-                {
-                  project.tech.map((stack=>(
-                    <div className="stack" key={stack}>{stack}</div>
-                  )))
-                }
+                {project.tech.map((stack) => (
+                  <div className="stack" key={stack}>
+                    {stack}
+                  </div>
+                ))}
               </div>
 
               <p className="pdesc">{project.desc}</p>
