@@ -64,7 +64,7 @@ export default function Project() {
       type: "Side Project",
       tech:["react","bootstrap","newsapi"],
       time: "June 2025 - July 2025",
-      desc: "Designed and built a high-performance news aggregator using React and Vite, achieving a 95+ Lighthouse performance score. Architected a modular UI system with reusable components to fetch and render live articles from external REST APIs with zero latency, ensuring a smooth, responsive reading experience.",
+      desc: "Designed and built a high-performance news aggregator using React and Vite, achieving a 80+ Lighthouse performance score. Architected a modular UI system with reusable components to fetch and render live articles from external REST APIs with zero latency, ensuring a smooth, responsive reading experience.",
       github: "https://github.com/Niyati-Dinesh/NewsNation",
     },
     {
