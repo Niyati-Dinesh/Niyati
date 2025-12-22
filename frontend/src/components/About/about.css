@@ -44,7 +44,6 @@
   margin-top: 6px;
 }
 
-
 /* ---------------- STATUS GRID ---------------- */
 .about-status {
   max-width: 1200px;
@@ -105,12 +104,41 @@ html[data-theme="dark"] .about-socials {
   margin-left: auto;
 }
 
+/* ---------------- Marquee design---------------- */
+.marquee{
+  overflow:hidden;
+  width:100%;
+  
+}
+.marquee-track{
+  display:flex;
+  width:max-content;
+  animation: scroll 25s linear infinite;
+}
+.marquee-track img{
+  height:280px;
+  object-fit:cover;
+  
+}
+@keyframes scroll{
+  from{
+    transform: translate(0);
+  }
+  to{
+    transform: translate(-50%);
+  }
+}
+.marquee:hover .marquee-track {
+  cursor: pointer;
+}
+
+
 /* ---------------- Responsive design---------------- */
 @media (max-width: 768px) {
   .about-status {
     display: flex;
     flex-direction: column;
-  } 
+  }
   .about-container h1 {
     font-size: 48px;
     line-height: 90%;
@@ -122,4 +150,8 @@ html[data-theme="dark"] .about-socials {
     width: 95%;
     margin-right: auto;
   }
+  .marquee-track img{
+  height:150px;
+  
+}
 }
