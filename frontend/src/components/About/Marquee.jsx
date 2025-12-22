@@ -26,7 +26,7 @@ export default function Marquee() {
 
         <img src={img4} />
 
-        <img src={img1} />
+        
 
         <img src={img2} />
 
