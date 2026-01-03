@@ -17,7 +17,7 @@
 /* Light Mode (Default) */
 :root {
   /* Background Colors */
-  --bg-primary: #EAEAE3;
+  --bg-primary: #efefeb;
   --bg-secondary: #2f2d2d;
   --bg-tertiary: rgba(200, 200, 200, 0.63);
   --bg-quaternary: black;
@@ -48,7 +48,7 @@ html[data-theme="dark"] {
   --text-quaternary: #0f0e0c;
 
   /* Border Colors */
-  --border-primary: rgba(229, 223, 213, 0.08);
+  --border-primary: #685f52;
   --border-secondary: rgba(229, 223, 213, 0.2);
 }
 
@@ -65,18 +65,16 @@ body {
 /*---------------------------TEXTURE OVERLAY---------------------------*/
 
 .texture {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  inset: 0;
-  top: 0;
-  left: 0;
   background-image: url("/texture.png");
   background-size: cover;
-  opacity: 0.7;
+  height: 100%;
   mix-blend-mode: overlay;
-  z-index: 999999999;
+  opacity: 0.7;
   pointer-events: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999999999;
 }
 
 /*---------------------------APP CONTAINER---------------------------*/
@@ -135,3 +133,4 @@ main {
 .mail-icon:hover {
   transform: scale(1.2);
 }
+

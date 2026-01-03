@@ -7,7 +7,6 @@ import linkedin from "/linkedin.svg";
 import github from "/github.svg";
 import { Mail } from "lucide-react";
 import resumefile from "/Niyati_Dinesh_Bhatt___Resume.pdf";
-import Marquee from "./Marquee";
 export default function About() {
   const aboutRef = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -36,7 +35,7 @@ export default function About() {
     >
       <div className="about-container">
         {/*===========================HEADING=============================*/}
-        <Marquee/>
+
         <div className="about-left">
           <h1>Hello,</h1>
           <h1 className="title-2">I'm Niyati</h1>
@@ -65,7 +64,10 @@ export default function About() {
           <div>
             <h3>Outside Of Tech</h3>
             <p>
-              When I’m not coding, I can be found singing (mostly when I’m alone), playing my guitar or keyboard, doing cooking experiments, and enjoying video games or reading. I also love beaches, colorful skies, and good food.
+              When I’m not coding, I can be found singing (mostly when I’m
+              alone), playing my guitar or keyboard, doing cooking experiments,
+              and enjoying video games or reading. I also love beaches, colorful
+              skies, and good food.
             </p>
           </div>
         </div>
@@ -101,7 +103,6 @@ export default function About() {
           </a>
         </div>
         <div className="dividor"></div>
-        
       </div>
     </section>
   );

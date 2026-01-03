@@ -81,7 +81,7 @@ export default function Home() {
           </div>
         </div>
         {/*===========================DIVIDOR=============================*/}
-        <div className="dividor"></div>
+        <div className="homedividor"></div>
         {/*===========================SELF-INTRO=============================*/}
         <div className="self-intro">
           <img src={pfp} alt="profile pic" className="pfp" />
@@ -117,7 +117,9 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div className="homedividor2"></div>
       </div>
+       
     </div>
   );
 }

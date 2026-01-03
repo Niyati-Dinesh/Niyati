@@ -177,10 +177,16 @@
 
 /*---------------------------DIVIDER---------------------------*/
 
-.dividor {
-  border: solid var(--border-primary) 0.6px;
+.homedividor {
+  border: var(--border-primary);
+  border-left-style: solid;
+  border-left-width: 0.655738px;
+  min-width: 0px;
+  width:0%;
   height: 100%;
   min-height: 400px;
+  margin-top: 70px;
+  background: transparent;
 }
 
 /*---------------------------SELF INTRO---------------------------*/
@@ -253,7 +259,7 @@
 html[data-theme="dark"] .links {
   margin-top: 4px;
   background-color: var(--bg-quaternary);
-  width:fit-content;
+  width: fit-content;
   padding-right: 4px;
   border-radius: 32px;
 }
@@ -332,8 +338,11 @@ html[data-theme="dark"] .links {
     padding-left: 32px;
     padding-right: 32px;
   }
+  .homedividor{
+    display:none;
+  }
 
-  .dividor {
+  .homedividor2 {
     border-top-color: var(--border-primary);
     border-top-style: solid;
     border-top-width: 0.655738px;
