@@ -39,7 +39,7 @@ export default function About() {
         <div className="about-left">
           <h1>Hello,</h1>
           <h1 className="title-2">I'm Niyati</h1>
-          <p className="pronounciation">/nee · yuh · tee/</p>
+          <p className="pronounciation">/nee · yuh · thee/</p>
           <p className="myself">
             I’m a software developer and a third-year Integrated MCA student at
             Amrita Vishwa Vidyapeetham. I focus on thoughtful exploration and

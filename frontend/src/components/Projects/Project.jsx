@@ -6,6 +6,7 @@ import cybertrone from "/cybertrone/cybertrone.png";
 import snippetvault from "/snippetvault/snippetvault.png";
 import newsnation from "/newsnation/newsnation.png";
 import studynest from "/studynest/studynest.png";
+import eve from "/eve/eve1.png";
 export default function Project() {
   //---------------------------DECLARATIONS---------------------------------
   const projRef = useRef(null);
@@ -32,6 +33,16 @@ export default function Project() {
   const projects = [
     {
       id: 1,
+      title: "E.V.E.",
+      image: eve,
+      type: "Academic Project",
+      tech: ["python", "fastapi", "react", "tailwindcss", "postgresql"],
+      time: "Jan 2026 - Apr 2026",
+      desc: "Designed and built a distributed multi-worker AI orchestration platform . Engineered a master–worker architecture capable of dynamically routing tasks across specialized AI agents for different taskss. Implemented real-time health monitoring, worker heartbeat systems, and load-aware task execution to ensure resilient processing and scalable AI-driven automation.",
+      github: "https://github.com/E-V-E-Engine/eve-system",
+    },
+    {
+      id: 2,
       title: "ShopThrone",
       image: shopthrone,
       type: "Infosys Springboard",
@@ -41,7 +52,7 @@ export default function Project() {
       github: "https://github.com/Niyati-Dinesh/snippetvault",
     },
     {
-      id: 2,
+      id: 3,
       title: "CyberTron",
       image: cybertrone,
       type: "Academic Project",
@@ -51,7 +62,7 @@ export default function Project() {
       github: "https://github.com/Niyati-Dinesh/CyberTron",
     },
     {
-      id: 3,
+      id: 4,
       title: "SnippetVault",
       image: snippetvault,
       type: "Side Project",
@@ -61,7 +72,7 @@ export default function Project() {
       github: "https://github.com/Niyati-Dinesh/SnippetVault",
     },
     {
-      id: 4,
+      id: 5,
       title: "NewsNation",
       image: newsnation,
       type: "Side Project",
@@ -71,7 +82,7 @@ export default function Project() {
       github: "https://github.com/Niyati-Dinesh/NewsNation",
     },
     {
-      id: 5,
+      id: 6,
       title: "StudyNest",
       image: studynest,
       type: "Side Project",

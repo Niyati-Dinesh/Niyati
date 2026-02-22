@@ -57,10 +57,13 @@ export default function Navbar() {
       {/*===========================LOGO=============================*/}
       <div className="navbar-brand">
         <div className="logo">
-          <button key="home" onClick={() =>{
-                  setActive("home");
-                  handleScroll("home");
-                }}>
+          <button
+            key="home"
+            onClick={() => {
+              setActive("home");
+              handleScroll("home");
+            }}
+          >
             Ni.
           </button>
         </div>
